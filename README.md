@@ -1,5 +1,9 @@
 # avm
-Android Video Montage. Toolset for termux/ffmpeg faster 2160p60 h265 video editing on Android for sharing
+avm for Android Video Montage. 
+
+Montage in a bash.
+
+Toolset for ffmpeg faster 2160p60 h265 video editing on Android/Termux/Docker for sharing
 
 # Usage
 
