@@ -10,6 +10,10 @@ Toolset for ffmpeg faster 2160p60 h265 video editing on Android/Termux/Docker fo
 1. Install and run Termux
 2. pkg in git -y
 3. git clone https://github.com/trolleway/avm.git
+4. termux-setup-storage 
+
+Run scripts in termux default folder,
+process files in android filesystem.
 
 # Examples
 
@@ -29,9 +33,7 @@ ffmpeg -y -i opolchenie/stage/20210402-50.MP4 -c:v libx265 -crf 26 -preset fast 
 rm
 
 --- merge h265 videos withouth re-encoding
-
-./avm/merge.sh opolchenie/stage  opolchenie/stage/exp
-
+./avm/merge.sh opolchenie
 ----
 gp120to60hevc
 ffmpeg -i 20210402-05.MP4  -y -map 0:v -c:v copy -bsf:v  hevc_mp4toannexb raw.h265
