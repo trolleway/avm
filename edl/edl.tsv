@@ -1,0 +1,22 @@
+# Editing Desision List for edl.py
+# This is tab-separeted file. Use Notepad++ recomended.
+
+# filename		start	duration
+
+# Example of merge multiple video files
+clip_0001.mp4	00:10	00:05	#cut part of clip from 10 second to 15 second
+clip_0002.mp4					#whole clip
+clip_0003.mp4	00:25			#from 25 second to end of clip
+clip_0004.mp4	00:00	00:10	
+
+# Example of delete inner part of video
+
+clip_0001.mp4	00:00	00:10
+clip_0001.mp4	00:20	
+
+# Create a short video with many scenes recorded in one file
+
+clip_0001.mp4	00:05		00:03
+clip_0001.mp4	00:10		00:05
+clip_0001.mp4	00:22.10	00:03
+clip_0001.mp4	00:29		00:03
