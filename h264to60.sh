@@ -4,7 +4,7 @@
 # $3 - duration time
 
 SRC=$1
-DST=$(dirname $1)/$(basename $1| cut -d. -f1)-60fps.MP4
+DST=$(dirname $1)/$(basename $1| cut -d. -f1)-60fps.mp4
 
 
 
