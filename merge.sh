@@ -10,7 +10,7 @@ for f in $1/*.[mM][pP]4; do ffmpeg -y  -hide_banner -loglevel error -i $f -c cop
 LIST='concat:'
 for f in $DST/*.ts; do LIST+="$f|" ; done
 #merge
-ffmpeg -y  -hide_banner -loglevel error -i "$LIST" -c copy -bsf:a aac_adtstoasc $DST/merge.MP4
+ffmpeg -y  -hide_banner -loglevel error -i "$LIST" -c copy -bsf:a aac_adtstoasc $DST/merge.mp4
 
 rm -rf $DST/*.ts
 rm -rf $DST/list.txt
