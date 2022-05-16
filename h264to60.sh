@@ -1,5 +1,5 @@
 
-# convert 120fps to 60fps for h265
+# convert 120fps to 60fps for h264
 # $2 - start time
 # $3 - duration time
 
