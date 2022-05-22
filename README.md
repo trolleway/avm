@@ -7,10 +7,17 @@ Toolset for ffmpeg faster 2160p60 h265 video editing on Android/Termux/Docker fo
 
 # Usage
 
-1. Install and run Termux
-2. pkg in git -y
-3. git clone https://github.com/trolleway/avm.git
-4. termux-setup-storage 
+## Android
+Install and run Termux. Install in home catalog. 
+
+```
+pkg in git -y
+git clone https://github.com/trolleway/avm.git
+termux-setup-storage 
+cd avm
+./deploy.sh
+```
+
 
 Run scripts in termux default folder,
 process files in android filesystem.
