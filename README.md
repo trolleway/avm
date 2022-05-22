@@ -13,7 +13,6 @@ Install and run Termux. Install in home catalog.
 ```
 pkg in git -y
 git clone https://github.com/trolleway/avm.git
-termux-setup-storage 
 cd avm
 ./deploy.sh
 ```
