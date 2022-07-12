@@ -14,22 +14,22 @@ ffplay -filter:v "crop=ih/16*9:ih" ~/tmp/skot.mp4
 case $POS in
 
   1)
-    ffmpeg -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih:0:0" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
+    ffmpeg -stats -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih:0:0" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
     ;;
 
   2)
-    ffmpeg -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih:iw/10" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
+    ffmpeg -stats -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih:iw/10" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
     ;;
 
   3)
-    ffmpeg -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
+    ffmpeg -stats -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
     ;;
 
   *)
-    ffmpeg -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
+    ffmpeg -stats -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
     ;;
 
   9)
-    ffmpeg -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih:iw" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
+    ffmpeg -stats -i $SRC -y -vf scale=1080:1920 -vf "crop=ih/16*9:ih:iw" -c:v libx264  -crf 19 -preset fast -c:a copy $DST
     ;;
 esac
