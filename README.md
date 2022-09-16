@@ -26,7 +26,7 @@ process files in android filesystem.
 
 ### Start docker with ffmpeg interactive (bash or PowerShell) 
 ```
-docker run -it  --entrypoint='bash'  -v ${PWD}:/tmp/workdir  jrottenberg/ffmpeg  
+docker run -it --rm  --entrypoint='bash'  -v ${PWD}:/tmp/workdir  jrottenberg/ffmpeg  
 ```
 #### slow down gopro 120 fps to 60 fps with optional clip
 ```
