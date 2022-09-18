@@ -1,4 +1,4 @@
-# Convert image to 3-second 2160p60 video
+# Create folder with proxy video clips
 
 SRC=$1 #folder
 DSTDIR=$SRC/proxy/
