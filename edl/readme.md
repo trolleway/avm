@@ -15,4 +15,6 @@
 ```
 docker build --tag edl:1.0 .
 docker run -it -v ${PWD}:/data -v d:\vitemp\:/content edl:1.0  /bin/bash
+cd /data
+python3 edl.py
 ```
