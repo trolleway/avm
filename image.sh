@@ -1,5 +1,6 @@
 # Convert image to 3-second 2160p60 video with smooth fade-in and fade-out
 # Video specially speeded for x2 to made transition in 60fps, not 30 by default
+# Sample: https://www.youtube.com/watch?v=GWtD8KDo_Uk
 
 SRC=$1 #folder
 for f in $1/*.jpg $1/*.png
