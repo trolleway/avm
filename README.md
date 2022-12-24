@@ -7,6 +7,19 @@ Toolset for ffmpeg faster 2160p60 h265 video editing on Android/Termux/Docker fo
 
 # Usage
 
+## Windows, Linux, Mac
+
+* Install and start docker, then
+* Download this repository  https://github.com/trolleway/avm/archive/refs/heads/main.zip or
+```
+git clone https://github.com/trolleway/avm.git
+```
+* Run interactively docker image with ffmpeg (bash or PowerShell on Windows)
+```
+docker run -it --rm  --entrypoint='bash'  -v ${PWD}:/tmp/workdir  jrottenberg/ffmpeg  
+```
+
+
 ## Android
 Install and run Termux. Install in home catalog. 
 
@@ -24,10 +37,11 @@ process files in android filesystem.
 # Examples
 
 
-### Start docker with ffmpeg interactive (bash or PowerShell) 
+#### merge h264 or h265 mp4 videos withouth re-encoding
 ```
-docker run -it --rm  --entrypoint='bash'  -v ${PWD}:/tmp/workdir  jrottenberg/ffmpeg  
+./avm/merge.sh dir_with_mp4
 ```
+
 #### slow down gopro 120 fps to 60 fps with optional clip
 ```
 ./avm/gopro120to60.sh opolchenie/20210402-07.MP4  opolchenie/stage/20210402-07.MP4
@@ -40,10 +54,6 @@ docker run -it --rm  --entrypoint='bash'  -v ${PWD}:/tmp/workdir  jrottenberg/ff
 ffmpeg -y -i opolchenie/stage/20210402-50.MP4 -c:v libx265 -crf 26 -preset fast -c:a aac -b:a 128k  opolchenie/stage/20210402-50-h265.MP4 
 ```
 
-#### merge h265 videos withouth re-encoding
-```
-./avm/merge.sh opolchenie
-```
 
 #### gopro 120 fps to 60fps  hevc
 ```
