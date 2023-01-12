@@ -45,7 +45,7 @@ cmd = cmd + ['-i',src]
 if args.keep_interlace:
     cmd = cmd + ['-filter:v',"scale=960:720:flags=spline"]
 else:
-    cmd = cmd + ['-filter:v',"idet,w3fdif,scale=iw*2:ih*2:flags=neighbor"]
+    cmd = cmd + ['-filter:v',"idet,w3fdif,scale=960:720:flags=spline"]
 cmd = cmd + [
 '-c:v', 'libx264',
 '-crf', '18',
