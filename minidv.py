@@ -12,8 +12,9 @@ def argparser_prepare():
 
     parser = argparse.ArgumentParser(description='convert MiniDV file to Youtube, deinterlace with increase framerate',
             formatter_class=PrettyFormatter)
-    parser.add_argument('-ss','--start', type=str,required=False, help='timecode start')    
-    parser.add_argument('-to','--stop', type=str,required=False, help='timecode stop')    
+    parser.add_argument('--start', type=str,required=False, help='timecode start')    
+    parser.add_argument('--stop', type=str,required=False, help='timecode stop')    
+    parser.add_argument('--keep-interlace', action=argparse.BooleanOptionalAction,required=False, help='skip w3fdif deinterlace process for demonstration, generate 25i instead of 50p video')    
     parser.add_argument('src', type=str, help='path to src file')    
     parser.add_argument('dst', type=str, help='path to converted file')    
 
@@ -39,9 +40,13 @@ cmd.append('-accurate_seek')
 
 if timecode_stop is not None:
     cmd = cmd + ['-to',timecode_stop]
+cmd = cmd + ['-i',src]
 
-cmd = cmd + ['-i',src,
-'-filter:v',"idet,w3fdif,scale=960:720:flags=spline",
+if args.keep_interlace:
+    cmd = cmd + ['-filter:v',"scale=960:720:flags=spline"]
+else:
+    cmd = cmd + ['-filter:v',"idet,w3fdif,scale=iw*2:ih*2:flags=neighbor"]
+cmd = cmd + [
 '-c:v', 'libx264',
 '-crf', '18',
 '-preset', 'slow', 
