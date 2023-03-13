@@ -1,6 +1,6 @@
 #/bin/bash
-# Convert video file to webm
-# Author: Geert Van Pamel
+# Convert video file to webm for Wikimedia Commons
+# Author: 
 # Parameters:
 #  P1: input file name
 
