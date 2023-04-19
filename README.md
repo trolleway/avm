@@ -64,6 +64,13 @@ time ffmpeg -y -i opolchenie/stage/export/merge.MP4 -vf crop=1080:1080:812:220 -
 time ffmpeg -y -i mnevniki/stage/export/merge-audio.MP4 -vf crop=1080:1080:812:220 -framerate 30 mnevniki/stage/export/merge-audio-instagram.MP4
 ```
 
+
+#### add audio to video
+```
+python3 audio.py video.mp4 audio.m4a
+```
+Produce two videofiles: with changed audio track, and with mixed audio track
+
 #### convert video for twitter
 ```
 ./avm/enc-twitter.sh opolchenie/stage/export/merge.MP4  opolchenie/stage/export/merge-twitter.MP4
