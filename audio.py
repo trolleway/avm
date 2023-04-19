@@ -5,8 +5,7 @@ import csv, os, shutil, argparse, errno,subprocess
 import glob
 
 def argparser_prepare():
-    parser = argparse.ArgumentParser(description='add audio to video',
-            formatter_class=PrettyFormatter)
+    parser = argparse.ArgumentParser(description='add audio to video')
     parser.add_argument( 'video', type=str, 
                         help='path to file')    
     parser.add_argument( 'audio', type=str, 
