@@ -7,7 +7,7 @@ DATE=$(date +%Y-%m-%d)
 #create dir if not exists
 mkdir -p  $DST
 #convert to mpeg transport stream
-for f in $1/*.[mM][pP]4; do ffmpeg -y  -hide_banner -loglevel error -i $f -c copy  -f mpegts $DST/$(basename $f| cut -d. -f1).ts; done
+for f in $1/*.[mM][pPKk][4vV]; do ffmpeg -y  -hide_banner -loglevel error -i $f -c copy  -f mpegts $DST/$(basename $f| cut -d. -f1).ts; done
 LIST='concat:'
 for f in $DST/*.ts; do LIST+="$f|" ; done
 #merge
