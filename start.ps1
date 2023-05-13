@@ -1,0 +1,1 @@
+docker run -it --rm  --entrypoint='bash'  -v ${PWD}:/tmp/workdir  jrottenberg/ffmpeg 
