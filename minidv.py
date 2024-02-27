@@ -16,6 +16,7 @@ def argparser_prepare():
     parser.add_argument('--stop', type=str,required=False, help='timecode stop')    
     parser.add_argument('--keep-interlace', action='store_true',required=False, help='skip w3fdif deinterlace process for demonstration, generate 25i instead of 50p video')    
     parser.add_argument('--preset', type=str, required=False, choices=['youtube', 'wikicommons'], default='youtube', help='preset for web service') 
+    parser.add_argument('-an','--audio-no', action='store_true',required=False, help='drop audio') 
     parser.add_argument('src', type=str, help='path to src file')    
     parser.add_argument('dst', type=str, help='path to converted file')    
 
@@ -30,6 +31,7 @@ dst = args.dst
 timecode_start=args.start
 timecode_stop=args.stop
 preset=args.preset
+audio_no=args.audio_no
 
 if not(os.path.isfile(src)):
     raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), src)
@@ -47,6 +49,8 @@ if args.keep_interlace:
     cmd = cmd + ['-filter:v',"scale=960:720:flags=spline"]
 else:
     cmd = cmd + ['-filter:v',"idet,w3fdif,scale=960:720:flags=spline"]
+if no_audio: cmd = cmd + ['-an']
+    
 if preset=='youtube':
     cmd = cmd + [
 '-c:v', 'libx264',
