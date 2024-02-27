@@ -49,7 +49,7 @@ if args.keep_interlace:
     cmd = cmd + ['-filter:v',"scale=960:720:flags=spline"]
 else:
     cmd = cmd + ['-filter:v',"idet,w3fdif,scale=960:720:flags=spline"]
-if no_audio: cmd = cmd + ['-an']
+if audio_no: cmd = cmd + ['-an']
     
 if preset=='youtube':
     cmd = cmd + [
