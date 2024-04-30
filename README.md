@@ -102,7 +102,8 @@ Insert yor own api key in URLs
 ### generate map overlay for list of gopro videos
 
 
-```docker run --rm --mount="type=bind,source=c:\trolleway\avm\video\merge\,target=/videos/" thomergil/gpxmapmovie    --tms-url-template 'https://trolleway.com/tiles/youtube/{zoom}/{x}/{y}.png?apikey='   --tail-duration 0   --pre-draw-track --line-width 4  --pre-draw-track-color '#808080' --zoom 15 --viewport-width 500 --viewport-height 500  --width 800 --height 800 --margin 700  --viewport-inertia 105 --information-position hidden  --input /videos/1.MP4  --input /videos/2.MP4  --input /videos/3.MP4  --input /videos/4.MP4   --output /videos/overlay-detail.mp4
+```
+docker run --rm --mount="type=bind,source=c:\trolleway\avm\video\merge\,target=/videos/" thomergil/gpxmapmovie    --tms-url-template 'https://trolleway.com/tiles/youtube/{zoom}/{x}/{y}.png?apikey='   --tail-duration 0   --pre-draw-track --line-width 4  --pre-draw-track-color '#808080' --zoom 15 --viewport-width 500 --viewport-height 500  --width 800 --height 800 --margin 700  --viewport-inertia 105 --information-position hidden  --input /videos/1.MP4  --input /videos/2.MP4  --input /videos/3.MP4  --input /videos/4.MP4   --output /videos/overlay-detail.mp4
 ```
 
 ### generate map overlay for list of gopro videos v2

@@ -12,4 +12,17 @@ RUN echo 'trolleway:user' | chpasswd
 
 
 RUN apt-get update && apt-get install --no-install-recommends -y python3-pip time parallel imagemagick
+
+#add to sudoers
+RUN apt-get install -y apt-utils
+RUN apt-get install -y sudo
+RUN adduser trolleway sudo
+RUN usermod -aG sudo trolleway
+
 RUN apt-get update && apt-get install --no-install-recommends -y ffmpeg
+
+
+
+#COPY . /opt/avm
+WORKDIR /opt/avm
+#ENTRYPOINT ["/opt/website/interface.sh"] 

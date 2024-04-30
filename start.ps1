@@ -1,1 +1,2 @@
-docker run -it --rm  --entrypoint='bash'  -v ${PWD}:/tmp/workdir  jrottenberg/ffmpeg 
+docker build --tag avm:latest .
+docker run --rm -v "${PWD}:/opt/avm"  -it avm:latest
