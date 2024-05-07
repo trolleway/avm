@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #merge mp4 files (h264 or 265) withouth encoding
 
 SRC=$1 #folder

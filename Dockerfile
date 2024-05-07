@@ -25,4 +25,5 @@ RUN apt-get update && apt-get install --no-install-recommends -y ffmpeg
 
 #COPY . /opt/avm
 WORKDIR /opt/avm
+#ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
 #ENTRYPOINT ["/opt/website/interface.sh"] 
