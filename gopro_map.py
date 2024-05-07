@@ -2,6 +2,7 @@
 
 import os,sys,argparse
 import glob
+from datetime import datetime
 
 def argparser_prepare():
 
@@ -32,6 +33,10 @@ if not os.path.isdir(path):
 cmd = ['./merge.sh',path]
 print_command(cmd)
 merge_result='2024-04-29.mp4'
+now = datetime.now()
+formatted_date = now.strftime("%Y-%m-%d")
+
+merge_result = formatted_date+'.mp4'
 
 
 cmd_text = r'''docker run --rm --mount="type=bind,source=c:\trolleway\avm\video,target=/video/" thomergil/gpxmapmovie    --tms-url-template 'https://trolleway.com/tiles/youtube/{zoom}/{x}/{y}.png'   --tail-duration 10000   --pre-draw-track --line-width 4  --pre-draw-track-color '#808080' --zoom 16  --viewport-height 800  --viewport-width 800 --margin 100 --information-position hidden '''

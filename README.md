@@ -129,5 +129,12 @@ time ffmpeg -y -i stab-merge.mp4 -i overlay-detail.mp4 -i overlay-big.mp4   -fil
 
 ```
 
+## dockers-multiple
  
- 
+docker build --tag ffmpeg_ssh:latest docker/ffmpeg_ssh
+docker build --tag gpxmapmovie_ssh:latest docker/gpxmapmovie_ssh
+
+docker run --rm  -d -v "${PWD}:/opt/avm" -p 2222:22 ffmpeg_ssh:latest
+ssh test@localhost -p 2222
+
+docker run --rm   --name ffmpeg_ssh -v "${PWD}:/opt/avm" -d -p 2224:22   ffmpeg_ssh:latest
