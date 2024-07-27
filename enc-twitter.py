@@ -32,7 +32,7 @@ if os.path.isfile(path):
     cmd='''
     SRC=$1
 DST=$(dirname $1)/$(basename $1| cut -d. -f1)-twitter.mp4
-ffmpeg -i $SRC -y -vf scale=1920:1080 -c:v libx264  -crf 24 -vf format=yuv420p  -c:a aac -movflags +faststart  -preset fast -c:a copy $DST
+ffmpeg -i $SRC -y -vf scale=1920:1080 -c:v libx264  -crf 24 -vf format=yuv420p  -c:a aac -movflags +faststart  -preset fast  $DST
 '''
     cmd = cmd.replace('$1',path)
     os.system(cmd)
