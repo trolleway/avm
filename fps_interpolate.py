@@ -10,7 +10,7 @@ def argparser_prepare():
 
         max_help_position = 35
 
-    parser = argparse.ArgumentParser(description='change video speed by change fps withouth recompress',
+    parser = argparse.ArgumentParser(description='change video fps with generate new frames',
             formatter_class=PrettyFormatter)
     parser.add_argument( 'path', type=str, 
                         help='path to file')    
