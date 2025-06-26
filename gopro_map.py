@@ -34,11 +34,11 @@ print_command(cmd)
 merge_result='2024-04-29.mp4'
 
 
-cmd_text = r'''docker run --rm --mount="type=bind,source=c:\trolleway\avm\video,target=/video/" thomergil/gpxmapmovie    --tms-url-template 'https://trolleway.com/tiles/youtube/{zoom}/{x}/{y}.png'   --tail-duration 10000   --pre-draw-track --line-width 4  --pre-draw-track-color '#808080' --zoom 16  --viewport-height 800  --viewport-width 800 --margin 100 --information-position hidden '''
+cmd_text = r'''docker run --rm --mount="type=bind,source='''+os.path.abspath(path)+''',target=/video/" thomergil/gpxmapmovie    --tms-url-template 'https://trolleway.com/tiles/youtube/{zoom}/{x}/{y}.png'   --tail-duration 10000   --pre-draw-track --line-width 4  --pre-draw-track-color '#808080' --zoom 16  --viewport-height 800  --viewport-width 800 --margin 100 --information-position hidden '''
 
 for entry in os.scandir(path):
     if entry.is_file():
-        cmd_text += ' --input /'+os.path.join('video',entry.name)+' '
+        cmd_text += ' --input /video/'+entry.name+' '
 
 cmd_text += ' --output /video/overlay-detail.mp4'
 
