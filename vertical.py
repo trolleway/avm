@@ -9,7 +9,7 @@ MOVIES_DIR = os.path.join(os.path.expanduser("~"), "Videos")
 # Supported video extensions
 VIDEO_EXTS = {".mp4", ".mov", ".avi", ".mkv", ".flv", ".wmv"}
 
-def rotate_video(input_path,flag_scale=True):
+def rotate_video(input_path,flag_resize=True):
     root, ext = os.path.splitext(input_path)
     if ext.lower() not in VIDEO_EXTS:
         print(f"Skipping unsupported extension: {input_path}")
@@ -41,18 +41,21 @@ def main():
         description="Rotate videos in ~/Movies by 90° for TikTok."
     )
     parser.add_argument(
-        "-f", "--file",
-        help="Process only this file (name or path relative to ~/Movies)"
-    )
+        "-i", "--input", dest="file",
+        help="Process only this file (by absolute path)")
+    group_resize = parser.add_mutually_exclusive_group()
+    group_resize.add_argument("--resize",action="store_true",dest="flag_resize",default=True,help="resize for social netrorks")
+    group_resize.add_argument("--no-resize",action="store_false",dest="flag_resize")
     args = parser.parse_args()
 
     if args.file:
         target = args.file
+        flag_resize=args.flag_resize
         # Allow absolute or relative paths
         if not os.path.isabs(target):
             target = os.path.join(MOVIES_DIR, target)
         if os.path.isfile(target):
-            rotate_video(target)
+            rotate_video(target,flag_resize)
         else:
             print(f"File not found: {target}", file=sys.stderr)
             sys.exit(1)
@@ -62,7 +65,7 @@ def main():
         for fname in os.listdir(MOVIES_DIR):
             path = os.path.join(MOVIES_DIR, fname)
             if os.path.isfile(path):
-                rotate_video(path, flag_scale)
+                rotate_video(path, flag_resize)
 
 if __name__ == "__main__":
     main()
