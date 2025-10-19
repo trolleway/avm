@@ -52,8 +52,8 @@ def main():
         target = args.file
         flag_resize=args.flag_resize
         # Allow absolute or relative paths
-        if not os.path.isabs(target):
-            target = os.path.join(MOVIES_DIR, target)
+        #if not os.path.isabs(target):
+        #    target = os.path.join(MOVIES_DIR, target)
         if os.path.isfile(target):
             rotate_video(target,flag_resize)
         else:
