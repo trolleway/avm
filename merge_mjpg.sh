@@ -12,7 +12,7 @@ directory_path="/path/to/your/directory"
 
 # Concatenate all MJPG AVI files in the directory
 
-(for f in "$SRC"/*.[aA][vV][iI]; do echo "file '$f'"; done) > list.txt
+(for f in "$SRC"/*.[aAmM][vVoO][iIvV]; do echo "file '$f'"; done) > list.txt
 
 #for f in "$SRC"/*.[aA][vV][iI]; do echo "file '$f'"; done
 #ffmpeg -f concat -safe 0 -i <(for f in "$SRC"/*.[aA][vV][iI]; do echo "file '$f'"; done) -c copy $DST/$DATE_merge.avi

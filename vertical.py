@@ -19,7 +19,7 @@ def rotate_video(input_path,flag_scale=True):
         return
     scalecmd = ''
     if flag_resize:
-        scalecmd = ',scale=-1:1920
+        scalecmd = ',scale=-1:1920'
     
     output_path = f"{root}_rotated{ext}"
     cmd = [
