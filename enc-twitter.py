@@ -22,20 +22,39 @@ def argparser_prepare():
 
 def is_url_exists(url):
     return requests.head(url).status_code < 400
+
+def get_twitter_filepath(filepath):
+    """
+    Takes a file path and returns a new path with '-twitter' 
+    appended before the file extension.
+    """
+    # Split the path into the root (everything before the extension) and the extension
+    base, ext = os.path.splitext(filepath)
+    
+    # Rejoin them with the new suffix
+    return f"{base}-twitter{ext}"
     
 parser = argparser_prepare()
 args = parser.parse_args()
-path = args.path
+src = args.path
 
-print(path)
-if os.path.isfile(path):
-    cmd='''
-    SRC=$1
-DST=$(dirname $1)/$(basename $1| cut -d. -f1)-twitter.mp4
-ffmpeg -i $SRC -y -vf scale=1920:1080 -c:v libx264  -crf 24 -vf format=yuv420p  -c:a aac -movflags +faststart  -preset fast  $DST
-'''
-    cmd = cmd.replace('$1',path)
-    os.system(cmd)
+
+if os.path.isfile(src):
+    dst = get_twitter_filepath(src)
+    cmd = [
+    'ffmpeg', 
+    '-i', src, 
+    '-y', 
+    '-vf', 'scale=1920:1080,format=yuv420p',  # Combined filters
+    '-c:v', 'libx264', 
+    '-crf', '28', 
+    '-c:a', 'aac', 
+    '-movflags', '+faststart', 
+    '-preset', 'fast', 
+    dst
+]
+
+    subprocess.run(cmd)
 elif path != '':
     cmd = '''wget -O- $url | ffmpeg -i - -y  -c:v libx264  -crf 24 -preset fast -c:a libmp3lame v/twitter.mp4'''
     cmd = cmd.replace('$url',path)

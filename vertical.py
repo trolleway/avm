@@ -21,7 +21,7 @@ def rotate_video(input_path,flag_format='mp4',flag_resize=True):
     if flag_resize:
         scalecmd = ',scale=-1:1920'
     
-    output_path = f"{root}_rotated{ext}"
+    output_path = f"{root}_rotated.mp4"
     cmd = [
         "ffmpeg",
         "-i", input_path,

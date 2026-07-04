@@ -71,7 +71,7 @@ def merge_ts_files(concat_list, output_file):
     ])
 
 def get_h264_filepaths(directory):
-    pattern = re.compile(r'\.(mp4|mkv)$', re.IGNORECASE)
+    pattern = re.compile(r'\.(mp4|mkv|avi)$', re.IGNORECASE)
     filepaths = []
 
     # List all items in the directory
@@ -109,7 +109,7 @@ dstfilebase = os.path.splitext(files[0])[0]+'-merge'
 
 if source_codec == 'mjpeg':
     dst=dstfilebase+'.avi'
-    cmd = ['ffmpeg','-f','concat','safe',0,'-i',listfile,'-c','copy',dst]
+    cmd = ['ffmpeg','-f','concat','safe','0','-i',listfile,'-c','copy',dst]
     print(' '.join(cmd))
     subprocess.run(cmd)
 
